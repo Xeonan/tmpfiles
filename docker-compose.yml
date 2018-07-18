@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tests:
+    image: testcafe/testcafe
+    build: .
+    ports:
+      - "3000:3000"
+      - 1337:1337
+    volumes:
+      - ./:/tests
+    networks:
+      - testnet
+    entrypoint:
+      ["/opt/testcafe/docker/testcafe-docker.sh", "chromium --no-sandbox", "/tests/test-wiki.test.js"]
+    #   - firefox /tests/test-wiki.test.js
+
+volumes:
+  logvolume01: {}
+
+networks:
+  testnet: {
+    external: true
+  }
