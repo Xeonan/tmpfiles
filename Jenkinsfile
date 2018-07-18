@@ -19,6 +19,7 @@ pipeline {
         }
         stage('Run server') {
             steps {
+                sh 'cd demo-server'
                 sh 'npm start'
             }
         }
