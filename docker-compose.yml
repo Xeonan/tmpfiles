@@ -11,7 +11,7 @@ services:
     networks:
       - testnet
     entrypoint:
-      ["/opt/testcafe/docker/testcafe-docker.sh", "chromium --no-sandbox", "/tests/test-wiki.test.js"]
+      ["/opt/testcafe/docker/testcafe-docker.sh", "chromium --no-sandbox", "/tests/test02.js"]
     #   - firefox /tests/test-wiki.test.js
 
 volumes:
