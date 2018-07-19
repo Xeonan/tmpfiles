@@ -29,4 +29,10 @@ pipeline {
             }
         }
     }
+    agent {
+        docker {
+            iamge 'testcafe/testcafe'
+            args '-v /var/jenkins_home/workspace/test:/tests \'chromium --no-sandbox\' /tests/test-wiki.test.js'
+        }
+    }
 }
