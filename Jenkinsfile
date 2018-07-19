@@ -14,6 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'cd demo-server'
+                sh 'pwd && ls -l ./'
                 sh 'npm install'
             }
         }
