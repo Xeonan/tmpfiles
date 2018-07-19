@@ -26,13 +26,10 @@ pipeline {
             steps{
                 sh 'curl http://localhost:3000/'
                 echo 'Server is running!'
+                
+                sh 'docker pull testcafe/testcafe'
+                sh 'docker run -v `pwd`:/tests testcafe/testcafe \'chromium --no-sandbox\' /tests/test-wiki.test.js'
             }
-        }
-    }
-    agent {
-        docker {
-            iamge 'testcafe/testcafe'
-            args '-v /var/jenkins_home/workspace/test:/tests \'chromium --no-sandbox\' /tests/test-wiki.test.js'
         }
     }
 }
