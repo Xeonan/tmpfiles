@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run server') {
             steps {
-                sh 'cd demo-server && npm start'
+                sh 'cd demo-server && nohup npm start &'
             }
         }
         stage('Test') {
