@@ -6,4 +6,4 @@ ADD . /tests
 
 RUN ls -l /tests
 
-CMD ["chromium:headless", "/tests/test-wiki.test.js"]
+CMD ["firefox", "/tests/test-wiki.test.js"]
