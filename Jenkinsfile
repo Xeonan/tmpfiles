@@ -2,6 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Preparation') {
+            agent any
             steps {
                 git 'https://github.com/pwcXiangnan/tmpfiles'
             }
@@ -22,14 +23,14 @@ pipeline {
             }
         }
         stage('Server Test') {
-            agent none
+            agent any
             steps {
                 sh 'curl http://localhost:3001/'
                 echo 'Server is accessible!'
             }
         }
         stage('Test') {
-            agent none
+            agent any
             steps{
                 sh 'docker pull testcafe/testcafe'
                 sh 'docker run -v `pwd`:/tests testcafe/testcafe \'chromium --no-sandbox\' /tests/test02.js'
