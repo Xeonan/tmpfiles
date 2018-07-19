@@ -13,15 +13,21 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd demo-server'
                 sh 'pwd && ls -l ./'
-                sh 'npm install'
+                sh 'cd demo-server && npm install'
             }
         }
         stage('Run server') {
             steps {
-                sh 'cd demo-server'
-                sh 'npm start'
+                sh 'cd demo-server && npm start'
+            }
+        }
+        stage('Test') {
+            setps{
+                sh 'curl http://localhost:3000/'
+            }
+            success {
+                echo 'Server is running!'
             }
         }
     }
