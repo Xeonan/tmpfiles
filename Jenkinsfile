@@ -23,7 +23,7 @@ pipeline {
             }
         }
         stage('Test') {
-            setps{
+            steps{
                 sh 'curl http://localhost:3000/'
             }
             success {
