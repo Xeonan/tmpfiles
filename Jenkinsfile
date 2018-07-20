@@ -24,12 +24,7 @@ pipeline {
         }
         stage('Server Test') {
             agent any
-            try {
-                sh 'curl http://localhost:3000'
-                sh 'curl http://localhost:31001/'
-            } catch (e) {
-                echo e
-            }
+            sh 'curl http://localhost:3000'
             echo 'Server is accessible!'
         }
         stage('Test') {
