@@ -19,7 +19,7 @@ pipeline {
                 sh 'pwd && ls -l ./'
                 sh 'cd demo-server && npm install'
                 echo 'Start server'
-                sh 'cd demo-server && nohup npm start &'
+                sh 'cd demo-server && npm run watch'
                 sh 'curl -f http://localhost:3000'
             }
         }
