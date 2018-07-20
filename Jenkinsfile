@@ -20,12 +20,13 @@ pipeline {
                 sh 'cd demo-server && npm install'
                 echo 'Start server'
                 sh 'cd demo-server && nohup npm start &'
+                sh 'curl http://localhost:3000'
             }
         }
         stage('Server Test') {
             agent any
             steps {
-                sh 'curl http://localhost:3000'
+                sh 'curl http://localhost:31001'
                 echo 'Server is accessible!'
             }
         }
