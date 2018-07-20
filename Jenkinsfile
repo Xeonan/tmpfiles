@@ -26,13 +26,9 @@ pipeline {
             agent any
             try {
                 sh 'curl http://localhost:3000'
-            } catch (e) {
-                echo 'Ping port 3000 ran into error!'
-            }
-            try {
                 sh 'curl http://localhost:31001/'
             } catch (e) {
-                echo 'Ping port 31001 ran into error!'
+                echo e
             }
             echo 'Server is accessible!'
         }
