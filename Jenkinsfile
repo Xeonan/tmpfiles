@@ -11,7 +11,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:8-stretch'
-                    args '-p 3001:3000'
+                    args '-p 31001:3000'
                 }
             }
             steps {
@@ -25,7 +25,7 @@ pipeline {
         stage('Server Test') {
             agent any
             steps {
-                sh 'curl http://localhost:3001/'
+                sh 'curl http://localhost:31001/'
                 echo 'Server is accessible!'
             }
         }
