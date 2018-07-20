@@ -24,8 +24,10 @@ pipeline {
         }
         stage('Server Test') {
             agent any
-            sh 'curl http://localhost:3000'
-            echo 'Server is accessible!'
+            steps {
+                sh 'curl http://localhost:3000'
+                echo 'Server is accessible!'
+            }
         }
         stage('Test') {
             agent any
