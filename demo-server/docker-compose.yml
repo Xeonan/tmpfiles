@@ -1,0 +1,22 @@
+version: '3'
+services:
+  tests:
+    build: .
+    ports:
+      - "8080:8080"
+      - 50000:50000
+    volumes:
+      - ./:/tests
+      - /var/run:/var/run
+    networks:
+      - testnet
+    environment:
+      - DOCKER_OPTS="-H tcp://0.0.0.0:2375"
+
+volumes:
+  logvolume01: {}
+
+networks:
+  testnet: {
+    external: true
+  }
